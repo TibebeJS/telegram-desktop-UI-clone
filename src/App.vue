@@ -17,7 +17,7 @@
       <ChatPlaceholder v-else></ChatPlaceholder>
     </div>
     <EmojiSideBar v-if="selectedChat.chat && selectedChat.chat.type !== 'channel'"></EmojiSideBar>
-    <ChannelInfo v-else-if="selectedChat.chat && selectedChat.chat.type === 'channel'"></ChannelInfo>
+    <ChannelInfo v-else-if="selectedChat.chat && selectedChat.chat.type === 'channel'" :chat="selectedChat.chat"></ChannelInfo>
   </div>
 </template>
 

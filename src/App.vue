@@ -65,6 +65,7 @@ export default {
         },
         membersCount: 2912,
         type: "channel",
+        commentsAreEnabled: true,
       },
       {
         id: "3",
@@ -76,6 +77,7 @@ export default {
         },
         membersCount: 1224801,
         type: "channel",
+        commentsAreEnabled: false,
       },
     ]);
 

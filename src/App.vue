@@ -2,7 +2,13 @@
   <div class="flex h-screen">
     <Sidebar />
     <ChatList />
-    <div class="w-auto flex-grow">
+    <div
+      class="w-auto flex-grow"
+      :style="{
+        backgroundImage: 'url(' + bgPattern + ')',
+        backgroundSize: 'contain',
+      }"
+    >
       <Chat v-if="selectedChat" :chat="selectedChat" />
       <ChatPlaceholder v-else></ChatPlaceholder>
     </div>
@@ -31,7 +37,10 @@ export default {
   setup() {
     let selectedChat = reactive(null)
 
-    return { selectedChat }
+    return {
+      selectedChat,
+      bgPattern: new URL(`./assets/chat-bg.jpg`, import.meta.url).href
+    }
   }
 }
 </script>

@@ -21,7 +21,7 @@
                     />
                 </svg>
             </div>
-            <div class="cursor-pointer">
+            <div class="cursor-pointer" v-if="chat.vc">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6"
@@ -35,6 +35,11 @@
                         stroke-width="2"
                         d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
                     />
+                </svg>
+            </div>
+            <div class="cursor-pointer">
+               <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <g><rect fill="none" height="24" width="24"/><g><path d="M2,4v16h20V4H2z M20,8.67h-2.5V6H20V8.67z M17.5,10.67H20v2.67h-2.5V10.67z M4,6h11.5v12H4V6z M17.5,18v-2.67H20V18H17.5z"/></g></g>
                 </svg>
             </div>
             <div class="cursor-pointer">

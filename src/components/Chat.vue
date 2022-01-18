@@ -15,10 +15,11 @@ import ChatTitle from "./ChatTitle.vue";
 import PinnedItems from "./PinnedItems.vue";
 import MuteUnmute from "./MuteUnmute.vue";
 import TextMessage from "./TextMessage.vue";
+import { computed } from "vue";
 export default {
     props: ["chat"],
     setup(props) {
-        const messages = new Array(100).fill(undefined).map((_, i) => {
+        const messages = computed(() => new Array(100).fill(undefined).map((_, i) => {
             return {
                 id: i,
                 type: "text",
@@ -30,7 +31,7 @@ export default {
                 `,
                 chat: props.chat,
             }
-        })
+        }))
 
         return {
             messages

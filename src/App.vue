@@ -16,7 +16,8 @@
       <Chat v-if="selectedChat.chat" :chat="selectedChat.chat" />
       <ChatPlaceholder v-else></ChatPlaceholder>
     </div>
-    <EmojiSideBar />
+    <EmojiSideBar v-if="selectedChat.chat && selectedChat.chat.type !== 'channel'"></EmojiSideBar>
+    <ChannelInfo v-else-if="selectedChat.chat && selectedChat.chat.type === 'channel'"></ChannelInfo>
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import EmojiSideBar from './components/EmojiSideBar.vue'
 
 import { reactive } from 'vue'
 import ChatPlaceholder from './components/ChatPlaceholder.vue'
+import ChannelInfo from './components/ChannelInfo.vue'
 
 export default {
   name: 'App',
@@ -36,8 +38,9 @@ export default {
     Sidebar,
     Chat,
     EmojiSideBar,
-    ChatPlaceholder
-  },
+    ChatPlaceholder,
+    ChannelInfo
+},
   setup() {
     let selectedChat = reactive({
       chat: null

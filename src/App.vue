@@ -1,14 +1,25 @@
 <template>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <div class="flex h-screen">
+    <Sidebar />
+    <ChatList />
+    <Chat/>
+    <EmojiSideBar/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ChatList from './components/ChatList.vue'
+import Sidebar from './components/Sidebar.vue'
+import Chat from './components/Chat.vue'
+import EmojiSideBar from './components/EmojiSideBar.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ChatList,
+    Sidebar,
+    Chat,
+    EmojiSideBar
+}
 }
 </script>

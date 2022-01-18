@@ -27,7 +27,7 @@
             </div>
             <div
                 v-if="message.chat.commentsAreEnabled"
-                class="flex items-center h-8 w-full justify-between pt-2 text-blue-400 text-sm"
+                class="flex items-center h-8 w-full justify-between pt-2 text-blue-400 text-sm cursor-pointer"
             >
                 <div class="flex gap-2">
                     <svg

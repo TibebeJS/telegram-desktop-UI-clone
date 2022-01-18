@@ -7,7 +7,7 @@
             <div class="text-sm text-gray-400">{{ membersCount }}</div>
         </div>
         <div class="flex text-gray-400 gap-4">
-            <div>
+            <div class="cursor-pointer">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6"
@@ -21,7 +21,7 @@
                     />
                 </svg>
             </div>
-            <div>
+            <div class="cursor-pointer">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6"
@@ -37,7 +37,7 @@
                     />
                 </svg>
             </div>
-            <div>
+            <div class="cursor-pointer">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5"

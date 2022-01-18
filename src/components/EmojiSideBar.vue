@@ -4,10 +4,10 @@
             class="uppercase flex items-center justify-around border-gray-300 border-b text-sm text-gray-400"
         >
             <div
-                class="h-16 border-b-2 border-blue-400 text-blue-400 flex items-center justify-center w-full"
+                class="h-14 border-b-2 border-blue-400 text-blue-400 flex items-center justify-center w-full cursor-pointer"
             >Emoji</div>
-            <div class="h-16 flex items-center w-full justify-center">Stickers</div>
-            <div class="h-16 flex items-center w-full justify-center">gifs</div>
+            <div class="h-14 flex items-center w-full justify-center cursor-pointer">Stickers</div>
+            <div class="h-14 flex items-center w-full justify-center cursor-pointer">gifs</div>
         </div>
 
         <div class="overflow-y-auto">

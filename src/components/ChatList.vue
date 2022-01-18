@@ -8,7 +8,7 @@
         :chat="chat"
         :key="chat.id"
         @click="selectChat(chat)"
-        :is-selected="selectedChat == chat.id"
+        :is-selected="selectedChat.id == chat.id"
       />
     </div>
   </div>
@@ -19,40 +19,9 @@ import ChatSearch from "./ChatSearch.vue"
 import ChatItem from "./ChatItem.vue";
 
 export default {
-  props: ["selectedChat"],
+  props: ["selectedChat", "chats"],
   setup() {
-    const chats = reactive([
-      {
-        id: "1",
-        profileImage: new URL(`../assets/profile-images/code-night.jpg`, import.meta.url).href,
-        title: "CodeNight",
-        lastMessage: {
-          text: "Last message",
-          senderName: "Tibebes"
-        }
-      },
-      {
-        id: "2",
-        profileImage: new URL(`../assets/profile-images/gdg-addis.jpg`, import.meta.url).href,
-        title: "GDG Addis",
-        lastMessage: {
-          text: "Last message",
-          senderName: "Tibebes"
-        }
-      },
-      {
-        id: "3",
-        profileImage: new URL(`../assets/profile-images/tikvah-ethiopia.jpg`, import.meta.url).href,
-        title: "TIKVAH-ETHIOPIA",
-        lastMessage: {
-          text: "Last message",
-          senderName: "Tibebes"
-        }
-      },
-    ]);
-    return {
-      chats,
-    };
+    return {}
   },
   components: { ChatSearch, ChatItem },
   methods: {

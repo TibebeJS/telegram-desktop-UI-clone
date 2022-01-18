@@ -3,7 +3,13 @@
     <ChatSearch class="h-16" />
 
     <div class="flex-grow overflow-y-scroll h-screen" style="scrollbar-width: thin;">
-      <ChatItem v-for="chat in chats" :chat="chat" :key="chat.id" @click="selectChat(chat)" :is-selected="selectedChat == chat.id"/>
+      <ChatItem
+        v-for="chat in chats"
+        :chat="chat"
+        :key="chat.id"
+        @click="selectChat(chat)"
+        :is-selected="selectedChat == chat.id"
+      />
     </div>
   </div>
 </template>
@@ -58,8 +64,8 @@ export default {
 </script>
 <style scoped>
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 16px;
+  width: 10px;
+  height: 8px;
 }
 
 /* Track */
@@ -70,7 +76,7 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
+  background: #8e9296;
   border-radius: 100vh;
   border: 3px solid #edf2f7;
 }

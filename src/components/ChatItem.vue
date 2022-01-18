@@ -1,5 +1,5 @@
 <template>
-    <div class="px-4 flex gap-2">
+    <div class="px-4 flex gap-2 h-16 hover:bg-gray-200 items-center cursor-pointer">
         <div>
             <img
                 v-if="chat.profileImage"
@@ -13,8 +13,8 @@
             <div>
                 {{ chat.title }}
             </div>
-            <div class="text-gray-400">
-                {{ chat.lastMessage }}
+            <div class="text-gray-400 text-sm">
+                <span class="text-blue-300">{{ chat.lastMessage.senderName }}:</span> {{ chat.lastMessage.text}}
             </div>
         </div>
     </div>

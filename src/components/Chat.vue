@@ -2,7 +2,7 @@
     <div class="flex flex-col h-screen">
         <ChatTitle :chat="chat"></ChatTitle>
         <PinnedItems :chat="chat"></PinnedItems>
-        <div class="flex-grow h-full overflow-y-auto gap-4">
+        <div class="flex-grow h-full overflow-y-auto gap-1">
             <template v-for="message in messages" :key="`message_id_${message.id}`">
                 <TextMessage :message="message" />
             </template>
@@ -22,7 +22,12 @@ export default {
             return {
                 id: i,
                 type: "text",
-                text: "test message",
+                text: `
+                Happening Now
+<br/>
+
+<a href="https://t.me/CodeNight?videochat=e4fbf7033600aa0129">https://t.me/CodeNight?videochat=e4fbf7033600aa0129</a>
+                `,
                 chat: props.chat,
             }
         })

@@ -1,9 +1,29 @@
 <template>
     <div class="px-4 flex items-end gap-4">
-        <div class="bg-white w-96 flex flex-col p-3 pb-2 my-4 rounded-md divide-y">
-            <div class="contents">
+        <div class="bg-white w-96 relative bubble flex flex-col p-3 pb-2 my-2 rounded-md divide-y">
+            <div class="relative pb-4">
                 <div class="text-blue-400">{{ message.chat.title }}</div>
-                <div class="font-light">{{ message.text }}</div>
+                <div class="font-light text-sm" v-html="message.text"></div>
+                <div
+                    class="absolute text-gray-300 bottom-0 right-0 flex text-xs gap-2 items-center"
+                >
+                    <div class="flex gap-1">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-3 w-3"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path
+                                fill-rule="evenodd"
+                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>425
+                    </div>
+                    <div>3:40 PM</div>
+                </div>
             </div>
             <div
                 v-if="message.chat.commentsAreEnabled"
@@ -56,7 +76,7 @@
                     stroke-width="2"
                     d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
-            </svg> -->
+            </svg>-->
         </div>
     </div>
 </template>
@@ -68,3 +88,15 @@ export default {
     },
 }
 </script>
+<style scoped>
+.bubble:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: -6px;
+    border-bottom: 25px solid white;
+    border-left: 20px solid transparent;
+}
+</style>

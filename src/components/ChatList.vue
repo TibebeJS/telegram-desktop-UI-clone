@@ -3,7 +3,7 @@
     <ChatSearch class="h-16" />
 
     <div class="flex-grow overflow-y-scroll h-screen" style="scrollbar-width: thin;">
-      <ChatItem v-for="chat in chats" :chat="chat" :key="chat.id" />
+      <ChatItem v-for="chat in chats" :chat="chat" :key="chat.id" @click="selectChat(chat)" :is-selected="selectedChat == chat.id"/>
     </div>
   </div>
 </template>
@@ -13,6 +13,7 @@ import ChatSearch from "./ChatSearch.vue"
 import ChatItem from "./ChatItem.vue";
 
 export default {
+  props: ["selectedChat"],
   setup() {
     const chats = reactive([
       {
@@ -47,7 +48,12 @@ export default {
       chats,
     };
   },
-  components: { ChatSearch, ChatItem }
+  components: { ChatSearch, ChatItem },
+  methods: {
+    selectChat(chat) {
+      this.$emit("chat-selected", chat.id);
+    }
+  }
 }
 </script>
 <style scoped>

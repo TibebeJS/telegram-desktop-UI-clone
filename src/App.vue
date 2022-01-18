@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen">
     <Sidebar />
-    <ChatList />
+    <ChatList :selected-chat="selectedChat" @chatSelected="updateSelectedChat" />
     <div
       class="w-auto flex-grow"
       :style="{
@@ -22,7 +22,7 @@ import Sidebar from './components/Sidebar.vue'
 import Chat from './components/Chat.vue'
 import EmojiSideBar from './components/EmojiSideBar.vue'
 
-import { reactive } from 'vue'
+import { ref } from 'vue'
 import ChatPlaceholder from './components/ChatPlaceholder.vue'
 
 export default {
@@ -35,12 +35,15 @@ export default {
     ChatPlaceholder
   },
   setup() {
-    let selectedChat = reactive(null)
+    let selectedChat = ref(null)
 
     return {
       selectedChat,
-      bgPattern: new URL(`./assets/chat-bg.jpg`, import.meta.url).href
+      bgPattern: new URL(`./assets/chat-bg.jpg`, import.meta.url).href,
+      updateSelectedChat(chatId) {
+        selectedChat.value = chatId
+      }
     }
-  }
+  },
 }
 </script>

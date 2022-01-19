@@ -18,11 +18,14 @@
                 </svg>
             </div>
         </div>
-
         <div
             class="flex w-20 h-16 items-center justify-center flex-col text-white cursor-pointer"
+            :class="{
+                'bg-slate-800 text-blue-400': selectedFolder.id == folder.id
+            }"
             v-for="folder in folders"
             :key="`folder-${folder.id}`"
+            @click="selectFolder(folder)"
         >
             <div class="h-7 w-7" v-html="folder.icon"></div>
             <div class="text-xs">{{ folder.name }}</div>
@@ -30,10 +33,11 @@
     </div>
 </template>
 <script>
-import { reactive } from "vue"
+import { onMounted, reactive, watch } from "vue"
 
 export default {
-    setup() {
+    props: ["selectedFolder"],
+    setup(props, ctx) {
         const folders = reactive([
             {
                 id: "1",
@@ -83,9 +87,19 @@ export default {
             },
         ])
 
+        const selectFolder = (folder) => {
+            ctx.emit('folder-selected', folder)
+        }
+
+        onMounted(() => {
+            if (!props.selectedFolder.id)
+                selectFolder(folders[0])
+        })
+
         return {
             folders,
+            selectFolder,
         }
-    },
+    }
 }
 </script>

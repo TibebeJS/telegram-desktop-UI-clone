@@ -3,7 +3,9 @@
     <ChatSearch class="h-16" />
 
     <div class="flex-grow overflow-y-scroll h-screen" style="scrollbar-width: thin;">
+      <div v-if="loadingChats" class="w-full flex h-48 items-center justify-center text-gray-400">Loading...</div>
       <ChatItem
+        v-else
         v-for="chat in chats"
         :chat="chat"
         :key="chat.id"
@@ -19,7 +21,7 @@ import ChatSearch from "./ChatSearch.vue"
 import ChatItem from "./ChatItem.vue";
 
 export default {
-  props: ["selectedChat", "chats"],
+  props: ["selectedChat", "chats", "loadingChats"],
   setup() {
     return {}
   },

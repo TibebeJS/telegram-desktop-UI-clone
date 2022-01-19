@@ -1,10 +1,11 @@
 <template>
   <div class="flex h-screen">
-    <Sidebar />
+    <Sidebar :selected-folder="selectedFolder.data" @folder-selected="updateSelectedFolder"/>
     <ChatList
       :selected-chat="selectedChat.chat ? selectedChat.chat : {}"
       @chatSelected="updateSelectedChat"
       :chats="chats"
+      :loading-chats="loadingChats"
     />
     <div
       class="w-auto flex-grow"
@@ -17,7 +18,10 @@
       <ChatPlaceholder v-else></ChatPlaceholder>
     </div>
     <EmojiSideBar v-if="selectedChat.chat && selectedChat.chat.type !== 'channel'"></EmojiSideBar>
-    <ChannelInfo v-else-if="selectedChat.chat && selectedChat.chat.type === 'channel'" :chat="selectedChat.chat"></ChannelInfo>
+    <ChannelInfo
+      v-else-if="selectedChat.chat && selectedChat.chat.type === 'channel'"
+      :chat="selectedChat.chat"
+    ></ChannelInfo>
   </div>
 </template>
 
@@ -27,7 +31,7 @@ import Sidebar from './components/Sidebar.vue'
 import Chat from './components/Chat.vue'
 import EmojiSideBar from './components/EmojiSideBar.vue'
 
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import ChatPlaceholder from './components/ChatPlaceholder.vue'
 import ChannelInfo from './components/ChannelInfo.vue'
 
@@ -40,7 +44,7 @@ export default {
     EmojiSideBar,
     ChatPlaceholder,
     ChannelInfo
-},
+  },
   setup() {
     let selectedChat = reactive({
       chat: null
@@ -84,6 +88,16 @@ export default {
       },
     ]);
 
+    const loadingChats = ref(true)
+
+    setTimeout(() => {
+      loadingChats.value = false;
+    }, Math.floor(Math.random() * 10) * 1000)
+
+
+    const selectedFolder = reactive({
+      data: {}
+    })
 
     return {
       selectedChat,
@@ -91,10 +105,16 @@ export default {
 
       chats,
 
+      loadingChats,
+      selectedFolder,
+
       updateSelectedChat(chatId) {
         let chat = chats.find(chat => chat.id == chatId)
         selectedChat.chat = chat
-      }
+      },
+      updateSelectedFolder(folder) {
+        selectedFolder.data = folder
+      },
     }
   },
 }

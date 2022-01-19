@@ -1,6 +1,6 @@
 <template>
     <div class="bg-slate-700 w-20 h-full flex flex-col">
-        <div class="flex w-20 h-16 items-center justify-center cursor-pointer">
+        <div class="flex w-20 h-14 items-center justify-center cursor-pointer">
             <div class="h-7 w-7 text-white">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

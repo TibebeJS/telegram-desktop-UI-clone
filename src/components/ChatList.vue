@@ -1,6 +1,6 @@
 <template>
   <div class="border-gray-300 border-r w-72 h-full flex flex-col">
-    <ChatSearch class="h-16" />
+    <ChatSearch class="h-14" />
 
     <div class="flex-grow overflow-y-scroll h-screen" style="scrollbar-width: thin;">
       <div v-if="loadingChats" class="w-full flex h-48 items-center justify-center text-gray-400">Loading...</div>

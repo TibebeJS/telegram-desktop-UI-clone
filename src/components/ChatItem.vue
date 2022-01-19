@@ -44,7 +44,9 @@
                     </svg>
                     <div class="font-medium">{{ chat.title }}</div>
                 </div>
-                <div class="flex-grow-0">8:15 AM</div>
+                <div class="flex-grow-0 text-xs"
+                :class="[isSelected ? 'text-white' : 'text-gray-400']"
+                >8:15 AM</div>
             </div>
             <div class="text-sm w-full flex" :class="[isSelected ? 'text-white' : 'text-gray-400']">
                 <div class="flex-grow">

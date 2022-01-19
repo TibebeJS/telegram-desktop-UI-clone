@@ -4,7 +4,7 @@
         <PinnedItems :chat="chat" class="flex-shrink-0"></PinnedItems>
         <div class="flex-grow overflow-y-auto gap-1">
             <div class="flex" v-for="message in messages" :key="`message_id_${message.id}`">
-                <div class="flex flex-col justify-end pl-4 pr-2 pb-1">
+                <div class="flex flex-col justify-end pl-4 pr-2 pb-1" v-if="chat.type !== 'channel'">
                     <img
                         v-if="chat.profileImage"
                         :src="chat.profileImage"
@@ -12,10 +12,11 @@
                         class="w-8 h-8 rounded-full"
                     />
                 </div>
-                <TextMessage :message="message" />
+                <TextMessage :message="message" :class="{'pl-4' : chat.type === 'channel'}"/>
             </div>
         </div>
-        <MuteUnmute class="flex-shrink-0"/>
+        <MuteUnmute class="flex-shrink-0" v-if="chat.type === 'channel'"/>
+        <ChatForm class="flex-shrink-0" v-else></ChatForm>
     </div>
 </template>
 <script>
@@ -24,6 +25,7 @@ import PinnedItems from "./PinnedItems.vue";
 import MuteUnmute from "./MuteUnmute.vue";
 import TextMessage from "./TextMessage.vue";
 import { computed } from "vue";
+import ChatForm from "./ChatForm.vue";
 export default {
     props: ["chat"],
     setup(props) {
@@ -45,7 +47,7 @@ export default {
             messages
         }
     },
-    components: { ChatTitle, PinnedItems, MuteUnmute, TextMessage }
+    components: { ChatTitle, PinnedItems, MuteUnmute, TextMessage, ChatForm }
 }
 </script>
 <style scoped>

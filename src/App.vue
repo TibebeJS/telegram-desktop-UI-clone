@@ -61,6 +61,7 @@ export default {
         },
         membersCount: 1490,
         type: "group",
+        vc: true,
       },
       {
         id: "2",

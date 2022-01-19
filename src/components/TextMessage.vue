@@ -1,5 +1,5 @@
 <template>
-    <div class="px-4 flex items-end gap-4">
+    <div class="px-2 flex items-end gap-4">
         <div class="bg-white w-96 relative bubble flex flex-col p-3 pb-2 my-2 rounded-md divide-y">
             <div class="relative pb-4 text-sm">
                 <div class="text-blue-400">{{ message.chat.title }}</div>

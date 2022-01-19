@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex px-2 h-14 border-b border-gray-300 bg-white items-center justify-between w-full cursor-pointer"
+        class="flex px-2 h-12 border-b border-gray-300 bg-white items-center justify-between w-full cursor-pointer"
     >
         <div class="flex gap-1 px-2">
             <div class="flex flex-col justify-between">

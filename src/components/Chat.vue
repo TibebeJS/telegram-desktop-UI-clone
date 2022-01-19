@@ -1,13 +1,21 @@
 <template>
     <div class="flex flex-col h-screen">
-        <ChatTitle :chat="chat"></ChatTitle>
-        <PinnedItems :chat="chat"></PinnedItems>
-        <div class="flex-grow h-full overflow-y-auto gap-1">
-            <template v-for="message in messages" :key="`message_id_${message.id}`">
+        <ChatTitle :chat="chat" class="flex-shrink-0"></ChatTitle>
+        <PinnedItems :chat="chat" class="flex-shrink-0"></PinnedItems>
+        <div class="flex-grow overflow-y-auto gap-1">
+            <div class="flex" v-for="message in messages" :key="`message_id_${message.id}`">
+                <div class="flex flex-col justify-end pl-4 pr-2 pb-1">
+                    <img
+                        v-if="chat.profileImage"
+                        :src="chat.profileImage"
+                        :alt="`${chat.title} profile image`"
+                        class="w-8 h-8 rounded-full"
+                    />
+                </div>
                 <TextMessage :message="message" />
-            </template>
+            </div>
         </div>
-        <MuteUnmute />
+        <MuteUnmute class="flex-shrink-0"/>
     </div>
 </template>
 <script>

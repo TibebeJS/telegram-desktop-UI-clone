@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex px-4 h-16 border-b border-gray-300 bg-white items-center justify-between w-full"
+        class="flex px-4 h-14 border-b border-gray-300 bg-white items-center justify-between w-full"
     >
         <div class="flex flex-col">
             {{ chat.title }}

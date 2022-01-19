@@ -1,7 +1,7 @@
 <template>
     <div class="border-gray-300 border-l w-80 h-full flex flex-col max-h-full">
         <div
-            class="uppercase flex items-center justify-around border-gray-300 border-b text-sm text-gray-400"
+            class="uppercase flex items-center justify-around border-gray-300 border-b text-sm text-gray-400 flex-shrink-0"
         >
             <div
                 class="h-14 border-b-2 border-blue-400 text-blue-400 flex items-center justify-center w-full cursor-pointer"

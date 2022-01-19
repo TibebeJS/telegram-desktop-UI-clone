@@ -92,7 +92,7 @@ export default {
 
     setTimeout(() => {
       loadingChats.value = false;
-    }, Math.floor(Math.random() * 10) * 1000)
+    }, Math.floor(Math.random() * 3) * 1000)
 
 
     const selectedFolder = reactive({
